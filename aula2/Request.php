@@ -21,7 +21,6 @@ class Request{
 	//Metodo para gerar string
 	public function toString(){
 	  	$parameters = "";
-		$count = 0;
 		foreach($this->parameters as $key => $value){
 			$parameters = $parameters . $key . "=" . $value . "&";
 		}
