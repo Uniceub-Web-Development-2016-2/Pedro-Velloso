@@ -3,7 +3,7 @@ include "request.php";
 
 if (!empty($_GET['name'])){
 
-	request("user", "search", "get");
+	request("user", "search", "get", $_GET);
 
 }else{
 

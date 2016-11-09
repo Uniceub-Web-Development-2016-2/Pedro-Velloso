@@ -1,7 +1,7 @@
 <?php
 include "request.php";
 
-if (!empty($_POST['name'])){
+if (!empty($_GET['name'])){
 
 	request("user", "create", "post");
 
@@ -9,7 +9,7 @@ if (!empty($_POST['name'])){
 
 ?>
 
-<form method="POST" action="" name="user">
+<form method="GET" action="" name="user">
 
 	<input type="text" name="name" placeholder="Nome" />
 	<input type="text" name="username" placeholder="Username">
