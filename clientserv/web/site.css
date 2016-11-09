@@ -1,0 +1,265 @@
+* {margin: 0;}
+html, body { 
+    margin:0;padding:0;
+    height:100%; 
+}
+body {
+    background: #252830;
+}
+
+/*
+Conteudo
+*/
+#content{  
+    color: #fff;    
+}
+#conteudo{
+    max-width: 70%;
+    margin: 30px auto;
+    padding: 30px 0;
+}
+#content hr {
+    border: 1px solid #6F7890;
+}
+#page-header{
+    float: left;
+}
+.desc {
+    font-size: 14px;
+    color: #6F7890;
+}
+.page-desc {
+    font-size: 32px;
+}
+#page-content{
+}
+.breadcrumb{
+    background: none;
+    float: right;
+}
+.breadcrumb a {
+    color: #0066cc;
+}
+.breadcrumb .active {
+    color: #6F7890;
+}
+
+#clear{
+    clear: both;
+}
+
+/*
+Custom BG
+*/
+.bg-red {
+    background: #DD4B39;
+}
+.bg-blue{
+    background: #0073B7;
+}
+
+
+/*
+Small Boxes - AdminTLE
+*/
+.small-box {
+    border-radius: 2px;
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.small-box > .inner {
+    padding: 10px;
+}
+.small-box > .small-box-footer {
+    position: relative;
+    text-align: center;
+    padding: 3px 0;
+    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
+    display: block;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+.small-box h3 {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+    padding: 0;
+}
+.small-box > .small-box-footer:hover {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.15);
+}
+.small-box h3,
+.small-box p {
+    z-index: 5px;
+}
+.small-box .icon {
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    z-index: 0;
+    font-size: 90px;
+    color: rgba(0, 0, 0, 0.15);
+}
+.small-box p {
+    font-size: 15px;
+}
+.small-box p > small {
+    display: block;
+    color: #f9f9f9;
+    font-size: 13px;
+    margin-top: 5px;
+}
+@media (max-width: 767px) {
+    .small-box {
+        text-align: center;
+    }
+    .small-box .icon {
+        display: none;
+    }
+    .small-box p {
+        font-size: 12px;
+    }
+}
+.small-box:hover .icon {
+    font-size: 95px;
+}
+
+/*
+Maix Box - AdminTLE
+*/
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.box.box-primary {
+    border-top-color: #3c8dbc;
+}
+.box.box-info {
+    border-top-color: #00c0ef;
+}
+.box.box-danger {
+    border-top-color: #dd4b39;
+}
+.box.box-warning {
+    border-top-color: #f39c12;
+}
+.box.box-success {
+    border-top-color: #00a65a;
+}
+.box.box-default {
+    border-top-color: #d2d6de;
+}
+.box-header {
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+.box-header .box-title {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1;
+}
+.box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+}
+.box-header:before,
+.box-body:before,
+.box-footer:before,
+.box-header:after,
+.box-body:after,
+.box-footer:after {
+  content: " ";
+  display: table;
+}
+.box-header:after,
+.box-body:after,
+.box-footer:after {
+  clear: both;
+}
+
+/*
+ * Page: 400 and 500 error pages
+ * ------------------------------
+ */
+.error-page {
+    width: 600px;
+    margin: 20px auto 0 auto;
+}
+@media (max-width: 991px) {
+    .error-page {
+        width: 100%;
+    }
+}
+.error-page > .headline {
+    float: left;
+    font-size: 100px;
+    font-weight: 300;
+}
+@media (max-width: 991px) {
+    .error-page > .headline {
+        float: none;
+        text-align: center;
+    }
+}
+.error-page > .error-content {
+    margin-left: 190px;
+    display: block;
+}
+@media (max-width: 991px) {
+    .error-page > .error-content {
+        margin-left: 0;
+    }
+}
+.error-page > .error-content > h3 {
+    font-weight: 300;
+    font-size: 25px;
+}
+@media (max-width: 991px) {
+    .error-page > .error-content > h3 {
+        text-align: center;
+    }
+}
+
+.form {
+    width: 500px;
+    margin: 0 auto;    
+}
+
+.form input:required:valid:focus{
+    border: 1px solid #00a65a;
+}
+.form input:required:invalid:focus {
+    border: 1px solid #DD4B39;
+}
+.form textarea:required:valid:focus{
+    border: 1px solid #00a65a;
+}
+.form textarea:required:invalid:focus {
+    border: 1px solid #DD4B39;
+}
+.botao{
+    margin: 8px 0;
+}
+
+.icon-red {
+    color: #DD4B39;
+}
