@@ -17,7 +17,7 @@ function request($resource, $operation, $method, array $qArray = NULL){
 
 	//Resposta da Request
 
-	echo $response->body;
+	return $response->body;
 }
 
 

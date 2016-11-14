@@ -1,0 +1,27 @@
+</div><!-- /conteudo -->
+        </div><!-- /content -->
+        <div class="clearfix"></div>
+
+        <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- iCheck -->
+        <script src="web/iCheck/icheck.js"></script>
+        
+        
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+            $(document).ready(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_polaris',
+                    radioClass: 'iradio_polaris',
+                    increaseArea: '-10%' // optional
+                });
+            });
+
+        </script>    
+    </body>
+</html>

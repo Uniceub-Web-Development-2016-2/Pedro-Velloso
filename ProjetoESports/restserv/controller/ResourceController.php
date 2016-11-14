@@ -36,7 +36,15 @@ class ResourceController{
 		$resource = $request->get_Resource();
 		$query = "INSERT INTO {$resource} ({$this->getCollums($body)}) VALUES {$this->getValues($body)}";
 		$prep = (new Connector())->exec($query);
-		return $query;
+		return $this->createCheck($prep);
+
+	}
+
+	private function createCheck($checker){
+
+		if(!$checker)
+			return array("code" => "error");
+		return array("code" => "success");
 
 	}
 

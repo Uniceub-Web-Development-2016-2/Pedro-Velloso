@@ -1,30 +1,15 @@
 <?php
-include "request.php";
+//Arquivo de configuração
+include_once("./app/Config.inc.php");
 
-if (!empty($_POST['name'])){
+//Inclue Header
+include_once("./inc/metaheader.html");
 
-	request("user", "create", "post");
+//Gera o menu utilizando classe para futuras edições dinamicas
+include_once("./inc/menu.php");
 
-}else{
+//Inclui página
+pag_load();
 
-?>
-
-<form method="POST" action="" name="user">
-
-	<input type="text" name="name" placeholder="Nome" />
-	<input type="text" name="username" placeholder="Username">
-	<input type="email" name="email" placeholder="E-mail">
-	<input type="hidden" name="type" value="1">
-	<input type="password" name="password" placeholder="Senha">
-	<input type="hidden" name="situation" value="0">
-
-
-	<!--<input type="hidden" name="resource" value="user">-->
-
-	<br />
-	<input type="submit" value="Enviar">
-
-
-</form>
-
-<?php } ?>
+//Inclui footer
+include_once("./inc/footer.html");
