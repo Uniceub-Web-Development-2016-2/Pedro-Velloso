@@ -34,3 +34,11 @@ function arrayToQueryString(array $a = NULL){
 	return substr($qS, 0, -1);
 
 }
+
+function onDb($resource, $comp){
+
+	$request = request($resource, "search", "get", $comp);
+	$request = json_decode($request, true);
+	return (count($request) > 0) ? true : false;
+	
+}

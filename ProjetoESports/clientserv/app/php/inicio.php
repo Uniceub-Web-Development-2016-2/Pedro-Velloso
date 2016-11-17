@@ -1,5 +1,5 @@
 <?php
-include ("request.php");
+
 $html = new GeraHTML("./app/html/inicio/inicio.html");
 
 $usersCadastrados = request("user", "search", "get");

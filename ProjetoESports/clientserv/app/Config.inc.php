@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function __autoload($Class) {
 
     $classDir = array("util");
@@ -18,15 +20,27 @@ function __autoload($Class) {
     }
 }
 
-function pag_load(){
+function get_navigation(){
 
 $s = explode("?", $_SERVER['REQUEST_URI']);
 $pag = explode("/", $s[0]);
 
+return $pag[2];
+
+}
+
+/*
+* TODO: usar função get_navigation()
+*/
+function pag_load(){
+
+$s = explode("?", $_SERVER['REQUEST_URI']);
+$pag = explode("/", $s[0]);
+include_once("request.php");
 
 if($pag[2] != null){
     if(!file_exists("./app/php/{$pag[2]}.php")){
-        echo "404";
+        include_once("./app/html/errors/404.html");
     }else{
         include_once("./app/php/{$pag[2]}.php");
     }

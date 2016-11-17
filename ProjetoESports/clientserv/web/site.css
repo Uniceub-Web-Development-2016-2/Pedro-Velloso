@@ -239,11 +239,11 @@ Maix Box - AdminTLE
     }
 }
 
+/*Custom Form*/
 .form {
     width: 500px;
     margin: 0 auto;    
 }
-
 .form input:required:valid:focus{
     border: 1px solid #00a65a;
 }
@@ -260,6 +260,7 @@ Maix Box - AdminTLE
     margin: 8px 0;
 }
 
+/*Custom icon (????)*/
 .icon-red {
     color: #DD4B39;
 }
