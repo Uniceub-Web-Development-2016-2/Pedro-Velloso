@@ -2,10 +2,19 @@
 
 $html = new GeraHTML("./app/html/inicio/inicio.html");
 
-$usersCadastrados = request("user", "search", "get");
-$uCadArray = json_decode($usersCadastrados, true);
+$nearEventsParams = array("locationId" => $_SESSION['locationId']);
+$nearEvents = request('events', 'search', 'get', $nearEventsParams);
 
-$html->put("#num_user_cad#", count($uCadArray));
+$near = count(json_decode($nearEvents, true));
+
+$html->put("#num_events_near#", $near);
+
+$eventsEntryParams = array("userId" => $_SESSION['id']);
+$eventsEntry = request('entry', 'search', 'get', $eventsEntryParams);
+
+$events = count(json_decode($eventsEntry, true));
+
+$html->put("#events_me#", $events);
 
 $pag = $html->get_pag();
 

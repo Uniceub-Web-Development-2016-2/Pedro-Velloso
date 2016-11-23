@@ -2,6 +2,9 @@
 
 session_start();
 
+//Codigo estáva sendo quebrado pelo httpful :<
+
+/*
 function __autoload($Class) {
 
     $classDir = array("util");
@@ -18,7 +21,10 @@ function __autoload($Class) {
         trigger_error("Erro ao incluir" . __DIR__. "/{$Class}.class.php", E_USER_ERROR);
         die;
     }
-}
+}*/
+
+include_once("./app/util/GeraHTML.class.php");
+include_once("./app/util/Crypt.class.php");
 
 function get_navigation(){
 

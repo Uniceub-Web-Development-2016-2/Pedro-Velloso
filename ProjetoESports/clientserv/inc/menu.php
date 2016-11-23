@@ -3,9 +3,11 @@ $html = new GeraHTML("./inc/menu.html");
 
 $menuLog = file_get_contents("./inc/menu/login.html");
 
-if(isset($_SESSION)){
-	$href = "./login";
-	$logIn = "Usuário";
+
+if(isset($_SESSION['username'])){
+	$menuLog = file_get_contents('./inc/menu/logged.html');
+	$html->put("#login#", $menuLog);
+	$html->put("#user_session#", $_SESSION['name']);
 }
 
 $html->put("#login#", $menuLog);
