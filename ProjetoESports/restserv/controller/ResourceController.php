@@ -2,7 +2,7 @@
 
 class ResourceController{
 
-	private $method_map = ['GET' => 'search', 'POST' => 'create', 'PUT' => 'update', 'DELETE' => 'remove'];
+	private $method_map = ['GET' => 'getController', 'POST' => 'postController', 'PUT' => 'update', 'DELETE' => 'remove'];
 
 	public function treat_request($request){
 
@@ -10,9 +10,42 @@ class ResourceController{
 
 	}
 
+	private function postController($request){
+		if($request->get_Operation() == "" || is_null($request->get_Operation()))
+			return $this->create($request);
+		return $this->{$request->get_Operation()}($request);
+	}
+
+	private function getController($request){
+		if($request->get_Operation() == "" || is_null($request->get_Operation()))
+			return $this->search($request);
+		return $this->{$request->get_Operation()}($request);
+	}
+
+	private function remove($request){
+		$removeBody = json_decode($request->get_Body(), true);
+		$query = 'DELETE FROM ' . $request->get_Resource() . " WHERE id = '" .$removeBody['id']. "'";
+		return (new Connector())->exec($query);
+	}
+
+	private function auth($request){
+		$loginBody = json_decode($request->get_Body(), true);
+		$query = 'SELECT * FROM ' . $request->get_Resource() . " WHERE username = '".$loginBody['username']. "'";
+		$result = (new Connector())->query($query);
+		return $result->fetchAll(PDO::FETCH_ASSOC);		
+	}
+
 	private function search($request){
 
-		$query = 'SELECT * FROM ' . $request->get_Resource() . self::queryParams($request->get_Params());
+		$query = "SELECT * FROM `"  . $request->get_Resource() . "`" . self::queryParams($request->get_Params());
+		$result = (new Connector())->query($query);
+		return $result->fetchAll(PDO::FETCH_ASSOC);
+
+	}
+
+	private function list($request){
+
+		$query = "SELECT * FROM `"  . $request->get_Resource() . "`" . self::queryParams($request->get_Params()) . " ORDER BY id DESC LIMIT 10";
 		$result = (new Connector())->query($query);
 		return $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -22,7 +55,7 @@ class ResourceController{
 		if($params != NULL){
 		$query = " WHERE ";		
 		foreach($params as $key => $value) {
-			$query .= $key." LIKE '%".$value."%' AND ";	
+			$query .= $key." = '".$value."' AND ";	
 		}
 		$query = substr($query,0,-5);
 		return $query;
@@ -47,6 +80,25 @@ class ResourceController{
 		return array("code" => "success");
 
 	}
+
+	private function update($request) {
+        $body = $request->get_Body();
+        $resource = $request->get_Resource();
+        $query = 'UPDATE '.$resource.' SET '. $this->getUpdateCriteria($body);
+		return (new Connector())->exec($query);
+    }
+
+    private function getUpdateCriteria($json){
+	$criteria = "";
+	$where = " WHERE ";
+	$array = json_decode($json, true);
+	foreach($array as $key => $value) {
+		if($key != 'id')
+			$criteria .= $key." = '".$value."',";	
+		}
+		return substr($criteria, 0, -1).$where." id = ".$array['id'];
+	}	
+	
 
 	private function getCollums($json){
 

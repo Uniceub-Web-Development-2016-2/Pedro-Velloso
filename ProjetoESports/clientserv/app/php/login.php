@@ -1,5 +1,11 @@
 <?php
 
+if(isset($_SESSION['username'])){
+
+header("Location: ./inicio");
+
+}else{
+
 $html = new GeraHTML("./app/html/inicio/login.html");
 
 if(isset($_POST['enviar'])){
@@ -24,3 +30,4 @@ if(isset($_POST['enviar'])){
 }
 
 echo $html->get_pag();
+}

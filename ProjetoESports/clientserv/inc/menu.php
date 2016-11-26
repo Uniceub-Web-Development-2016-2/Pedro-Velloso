@@ -22,4 +22,18 @@ if($nav == "cadastrar" || $nav == "login"){
 }
 $html->put("#{$nav}#", "class='active'");
 
+//Admin menu
+
+if(isset($_SESSION['username'])){
+	if($_SESSION['type'] == 2){
+		$adm = file_get_contents('./inc/menu/admin.html');
+		$html->put("#admin#", $adm);
+	}else{
+		$html->put("#admin#", '');
+	}
+
+}else{
+	$html->put("#admin#", '');
+}
+
 echo $html->get_pag();

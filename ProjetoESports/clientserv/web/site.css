@@ -57,6 +57,10 @@ Custom BG
 .bg-blue{
     background: #0073B7;
 }
+.bg-green{
+    background: #28A488;
+}
+
 
 
 /*
@@ -263,4 +267,12 @@ Maix Box - AdminTLE
 /*Custom icon (????)*/
 .icon-red {
     color: #DD4B39;
+}
+
+.tooltip.top .tooltip-inner {
+    background-color:#FFF;
+    color: #000;
+}
+.tooltip.top .tooltip-arrow {
+      border-top-color: #FFFE;
 }

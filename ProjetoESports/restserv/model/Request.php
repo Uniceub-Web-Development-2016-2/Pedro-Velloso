@@ -9,6 +9,7 @@ class Request{
 	private $resource;
 	private $params;
 	private $body;
+	private $operation;
 
 	public function __construct($method, $protocol, $server_ip, $remote_ip, $resource, $params, $body){
 
@@ -19,6 +20,7 @@ class Request{
 		$this->set_Resource($resource);
 		$this->set_Params($params);
 		$this->body = $body;
+		$this->set_Operation($resource);
 
 	}
 
@@ -81,6 +83,16 @@ class Request{
 
 	public function get_Body(){
 		return $this->body;
+	}
+
+	public function set_Operation($resource){
+		$s = explode("?", $resource);
+        $r = explode("/", $s[0]);
+        $this->operation = $r[3];	
+	}
+
+	public function get_Operation(){
+		return $this->operation;
 	}
 
 

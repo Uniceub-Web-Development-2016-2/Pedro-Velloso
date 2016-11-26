@@ -1,5 +1,11 @@
 <?php
 
+if(isset($_SESSION['username'])){
+
+	header("Location: ./inicio");
+
+}else{
+
 $html = new GeraHTML("./app/html/inicio/cadastro.html");
 
 $locations = request("location", "search", "get");
@@ -31,9 +37,10 @@ if(isset($_POST["enviar"])){
 		$response = request("user", "create", "post");
 		$response = json_decode($response, true);
 		
-		$html->put(array("#titulo#", "#tipo_box#", "#mensagem#"), array("Sucesso!", "success", "Bem-vindo ao nosso site {$_POST['name']}! Clique <a href='#'>aqui</a> para realizar seu login!"));
+		$html->put(array("#titulo#", "#tipo_box#", "#mensagem#"), array("Sucesso!", "success", "Bem-vindo ao nosso site {$_POST['name']}! Clique <a href='./login'>aqui</a> para realizar seu login!"));
 		
 	}
 }
 
 echo $html->get_pag();
+}

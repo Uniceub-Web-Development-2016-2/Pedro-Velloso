@@ -27,7 +27,7 @@ class RequestController{
         }
 
         $body = file_get_contents('php://input');
-        return new Request($request_info['REQUEST_METHOD'], $request_info["SERVER_PROTOCOL"], $request_info['SERVER_ADDR'], $request_info['REMOTE_ADDR'], $request_info['REQUEST_URI'], $request_info['QUERY_STRING'], $body);
+        return new Request($request_info['REQUEST_METHOD'], $request_info["SERVER_PROTOCOL"], $request_info['SERVER_ADDR'], $request_info['REMOTE_ADDR'], $request_info['REQUEST_URI'], $request_info['QUERY_STRING'], $body, $request_info['REQUEST_URI']);
  
        
     }
