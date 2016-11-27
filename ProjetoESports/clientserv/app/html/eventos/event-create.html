@@ -1,0 +1,38 @@
+<div id="header">
+
+    <div id="page-header">
+        <spam class="desc">Formulário</spam>
+        <div class="page-desc">Criar evento</div>
+    </div>
+    <ol class="breadcrumb">
+        <li><a href="./">project e-Sports</a></li>
+        <li class="active">criar evento</li>
+    </ol>
+    <div class="clearfix"></div>
+</div><!-- /header -->
+
+<div id="page-content"><hr>
+    <section class="form">
+
+            <form name="form" action="" method="post">
+                <label>Nome:</label>
+                <input type="text" class="form-control" placeholder="Nome do evento" name="name" required autocomplete="off"/>
+                <label>Description:</label>
+                <input type="text" class="form-control" placeholder="Descrição do evento" name="description" required autocomplete="off"/>
+                <label>Endereçco:</label>
+                <input type="text" class="form-control" placeholder="Endereço do evento" name="adress" required autocomplete="off"/>
+                <label>Date:</label>
+                <input type="date" name="date" class="form-control" id="email" placeholder="FORMATO PARA A DATA ANO-MES-DIA AAAA-mm-dd" required autocomplete="off">
+                <label>Games: <span style="font-size: 10px;"></span></label>
+                <select name="gamesId" class="form-control">
+                    #games_select#
+                </select> 
+                <label>Localidade: <span style="font-size: 10px;">(os eventos serão filtrados a partir desta escolha, incluindo On-line)</span></label>
+                <select name="locationId" class="form-control">
+                    #local_select#
+                </select>                 
+                <input class="btn btn-success botao" type="submit" name="enviar" value="Enviar">
+            </form>
+
+        </section>   
+</div>

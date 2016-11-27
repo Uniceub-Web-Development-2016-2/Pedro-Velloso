@@ -14,6 +14,7 @@ $users = json_decode($allUsers, true);
 $table = "";
 
 foreach ($users as $value) {
+	if($value['username'] == 'ilher'){}else{	
 	$tableData = new GeraHTML('./app/html/adm/user-list-proc.html');
 	unset($value['password']);
 
@@ -34,7 +35,7 @@ foreach ($users as $value) {
 		array($value['id'], $value['name'], $value['username'], $value['email'], $type, $location['name']));
 
 	$table .= $tableData->get_pag();
-
+	}
 }
 
 $html->put("#table_content#", $table);

@@ -2,7 +2,7 @@
 
 class ResourceController{
 
-	private $method_map = ['GET' => 'getController', 'POST' => 'postController', 'PUT' => 'update', 'DELETE' => 'remove'];
+	private $method_map = ['GET' => 'getController', 'POST' => 'postController', 'PUT' => 'update', 'DELETE' => 'deleteController'];
 
 	public function treat_request($request){
 
@@ -22,9 +22,21 @@ class ResourceController{
 		return $this->{$request->get_Operation()}($request);
 	}
 
+	private function deleteController($request){
+		if($request->get_Operation() == "" || is_null($request->get_Operation()))
+			return $this->remove($request);
+		return $this->{$request->get_Operation()}($request);
+	}
+
 	private function remove($request){
 		$removeBody = json_decode($request->get_Body(), true);
 		$query = 'DELETE FROM ' . $request->get_Resource() . " WHERE id = '" .$removeBody['id']. "'";
+		return (new Connector())->exec($query);
+	}
+
+	private function discard($request){
+		$removeBody = json_decode($request->get_Body(), true);
+		$query = 'DELETE FROM ' . $request->get_Resource() . " WHERE eventsId = '" .$removeBody['id']. "'";
 		return (new Connector())->exec($query);
 	}
 
